@@ -20,27 +20,67 @@ import UIKit
 //answer = [a, b, c, d]
 //print(answer)
 
-//for a in range(0,4):
-//for b in range (0,4):
-//if guess_num[a]==ans[b]:
-//cow+=1
 
-var answer = [3,4,5,6]
-var guess = [3,4,5,6]
-var charA = 0
-var charB = 0
-for i in 0...3 {
-    if guess[i] == answer[i]{
-    charA += 1
-    }
-    for num in 0...3 {
-        for nums in 0...3 {
-        if guess[num] == answer[nums]{
-            charB += 1
-        }
-        }
-    }
-}
+//
+//var indexA = [0,1,2,3,4,5,6,7,8,9]
+//var random = [Int]()
+//for i in 0...3{
+//    var arrayIndex = Int(arc4random_uniform(10-UInt32(i)))
+//    var arrayNum = indexA[arrayIndex]
+//    random.append(arrayNum)
+//    indexA.removeAtIndex(arrayIndex)
+//    print(arrayNum)
+//}
+//print(random)
 
-print(charA)
-print(charB)
+
+
+//
+//var answer = [4,3,5,6]
+//var guess = [7,4,5,6]
+//var charA = 0
+//var charB = 0
+//for i in 0...3 {
+//    if guess[i] == answer[i]{
+//    charA += 1
+//    }
+//    else {
+//        for num in guess {
+//            if num == answer[i]{
+//                charB+=1
+//            }
+//        }
+//    }
+//}
+//print(charA)
+//print(charB)
+//    for num in answer{
+//    if num == answer[0]{
+//        print(num, answer[i])
+//            charB = 4 - charA
+//        }
+//        }
+
+
+//
+//todo 2
+//var indexA = [0,1,2,3,4,5,6,7,8,9]
+//var answear = [Int]()
+//for i in 0...3{
+//    let arrayIndex = Int(arc4random_uniform(10-UInt32(i)))
+//    let arrayNum = indexA[arrayIndex]
+//    answear.append(arrayNum)
+//    indexA.removeAtIndex(arrayIndex)
+//}
+
+//todo 3
+//   var guessArray = [Int("guessString")]
+//            var charA = 0
+//            var charB = 0
+//            for i in 0...3 {
+//            if guessArray[i] == answear[i]{
+//                charA += 1
+//            }
+//
+//todo4
+//let hint = "\(charA)A\(charB)B"

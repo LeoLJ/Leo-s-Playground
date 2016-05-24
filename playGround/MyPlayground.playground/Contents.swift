@@ -61,17 +61,17 @@ import UIKit
 //        }
 //        }
 
-
+//var guessArray = [Int("guessString")]
 //
 //todo 2
-//var indexA = [0,1,2,3,4,5,6,7,8,9]
-//var answear = [Int]()
-//for i in 0...3{
-//    let arrayIndex = Int(arc4random_uniform(10-UInt32(i)))
-//    let arrayNum = indexA[arrayIndex]
-//    answear.append(arrayNum)
-//    indexA.removeAtIndex(arrayIndex)
-//}
+var indexA = [0,1,2,3,4,5,6,7,8,9]
+var answear = [Int]()
+for i in 0...3{
+    let arrayIndex = Int(arc4random_uniform(10-UInt32(i)))
+    let arrayNum = indexA[arrayIndex]
+    answear.append(arrayNum)
+    indexA.removeAtIndex(arrayIndex)
+}
 
 //todo 3
 //   var guessArray = [Int("guessString")]
@@ -84,3 +84,24 @@ import UIKit
 //
 //todo4
 //let hint = "\(charA)A\(charB)B"
+
+
+
+//let guessArray = guessString.characters.flatMap{Int(String($0))}
+//var charA = 0
+//var charB = 0
+//for i in 0...3 {
+//    if guessArray[i] == answear[i]{
+//        charA += 1
+//    }else {
+//        for num in guessArray{
+//            if num == answear[i]{
+//                charB += 1
+//            }
+//        }
+//    }
+//}
+//print(charA, charB)
+
+let string = answear
+print(string[0],string[1],string[2],string[3])

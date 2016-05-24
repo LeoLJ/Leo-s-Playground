@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D8F1D17A5D637363004D0E06B49B052C0FE47474",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CA0ED23ABBC9A75120D2C9364D0DDD758070DE88" : 0,
+    "D8F1D17A5D637363004D0E06B49B052C0FE47474" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DA98602F-628D-4F96-AC42-BACFE75BC4A9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CA0ED23ABBC9A75120D2C9364D0DDD758070DE88" : "",
+    "D8F1D17A5D637363004D0E06B49B052C0FE47474" : "Try\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BullsAndCows",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BullsAndCows.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:LeoLJ\/hello.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CA0ED23ABBC9A75120D2C9364D0DDD758070DE88"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ALPHACamp\/BullsAndCows.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D8F1D17A5D637363004D0E06B49B052C0FE47474"
+    }
+  ]
+}

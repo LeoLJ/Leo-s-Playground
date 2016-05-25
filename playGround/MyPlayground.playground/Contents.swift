@@ -102,6 +102,25 @@ for i in 0...3{
 //    }
 //}
 //print(charA, charB)
+func containsDuplicate(nums: [Int]) -> Bool {
+    var counts = [Int: Int]()
+    var result = false
+    for num in nums {
+        if counts[num] == nil {
+            counts[num] = 1
+        }
+        else {
+            counts[num] = counts[num]! + 1
+        }
+    }
+    for count in counts.values {
+        if count >= 2 {
+            result = true
+            return result
+        }
+    }
+    return result
+}
 
-let string = answear
-print(string[0],string[1],string[2],string[3])
+let string = [1,2,2,5,6]
+containsDuplicate(string)

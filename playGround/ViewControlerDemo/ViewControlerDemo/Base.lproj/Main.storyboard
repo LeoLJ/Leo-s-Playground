@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R48-yl-wnZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EI5-aA-nAz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Demo-->
+        <!--Photo PlayGround-->
         <scene sceneID="Sdw-08-iMy">
             <objects>
-                <viewController id="R48-yl-wnZ" customClass="ViewDemo" customModule="ViewControlerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="R48-yl-wnZ" customClass="ViewDemo" customModule="ViewControlerDemo" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="62h-s7-mfO"/>
                         <viewControllerLayoutGuide type="bottom" id="ZM4-cT-7VI"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNt-cy-8w7">
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNt-cy-8w7">
                                 <rect key="frame" x="30" y="30" width="200" height="160"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woR-9V-Ids">
@@ -27,35 +27,79 @@
                                     <action selector="changePhoto:" destination="R48-yl-wnZ" eventType="touchUpInside" id="Zhx-0S-mA1"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IFC-9V-jdJ">
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IFC-9V-jdJ">
                                 <rect key="frame" x="55" y="235" width="150" height="2"/>
                             </progressView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2II-wD-HQ9">
-                                <rect key="frame" x="53" y="326" width="154" height="31"/>
-                            </slider>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="oXg-Pk-wUO">
-                                <rect key="frame" x="83" y="269" width="94" height="29"/>
-                            </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJk-kA-a0X">
-                                <rect key="frame" x="277" y="99" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="277" y="99" width="131" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="2II-wD-HQ9">
+                                <rect key="frame" x="53" y="326" width="154" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="R48-yl-wnZ" eventType="valueChanged" id="f7c-CL-uDS"/>
+                                </connections>
+                            </slider>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" maximumValue="1000" stepValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="oXg-Pk-wUO">
+                                <rect key="frame" x="83" y="269" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperChanged:" destination="R48-yl-wnZ" eventType="valueChanged" id="leb-Cy-hfL"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Photo PlayGround" id="5tg-G6-00y"/>
                     <connections>
                         <outlet property="imageView" destination="RNt-cy-8w7" id="D10-TT-axY"/>
                         <outlet property="label" destination="tJk-kA-a0X" id="tbb-Pu-CCJ"/>
                         <outlet property="progressView" destination="IFC-9V-jdJ" id="AFT-b6-AVd"/>
-                        <outlet property="slider" destination="2II-wD-HQ9" id="RQf-hj-ye9"/>
-                        <outlet property="stepper" destination="oXg-Pk-wUO" id="Hld-xm-K70"/>
+                        <outlet property="sliderView" destination="2II-wD-HQ9" id="n9P-EF-RI4"/>
+                        <outlet property="stepperView" destination="oXg-Pk-wUO" id="8fu-oZ-LY1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIL-57-b7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499" y="308"/>
+            <point key="canvasLocation" x="953" y="652"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="1QE-53-1XQ">
+            <objects>
+                <viewController id="mhC-fD-22A" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M7O-xX-JkT"/>
+                        <viewControllerLayoutGuide type="bottom" id="nQg-H6-CNa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4SB-yD-MXh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="8dg-Ut-bPs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pRc-Fp-Tgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="953" y="1428"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KDX-9D-UxD">
+            <objects>
+                <tabBarController id="EI5-aA-nAz" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Twq-ba-ppm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="R48-yl-wnZ" kind="relationship" relationship="viewControllers" id="Rdi-ie-28V"/>
+                        <segue destination="mhC-fD-22A" kind="relationship" relationship="viewControllers" id="MvG-nV-7do"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2f-iJ-fmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="646"/>
         </scene>
     </scenes>
 </document>

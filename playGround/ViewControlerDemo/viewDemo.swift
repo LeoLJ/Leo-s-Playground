@@ -11,13 +11,33 @@ import UIKit
 class ViewDemo: UIViewController {
 
     let photo = ["stand","jump"]
+    var timer: NSTimer!
     
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var sliderView: UISlider!
+    @IBOutlet weak var stepperView: UIStepper!
+
+    
+    
+    @IBAction func sliderChanged(sender: AnyObject) {
+        let slider = sender as! UISlider
+        self.imageView.alpha = CGFloat(slider.value/1000)
+        self.label.text = String(format: "alpha: %.02f", slider.value/1000)
+        stepperView.value = Double(slider.value)
+        
+    }
+    
+    
     @IBOutlet weak var label: UILabel!
+    
+    @IBAction func stepperChanged(sender: AnyObject) {
+        let stepper = sender as! UIStepper
+        self.imageView.alpha = CGFloat(stepper.value/1000)
+        self.label.text = String(format: "alpha: %.02f", stepper.value/1000)
+        sliderView.value = Float(stepper.value)
+    }    
+
     @IBAction func changePhoto(sender: AnyObject) {
         let alert = UIAlertController(title: "Change Image", message: "please select a photo", preferredStyle: .ActionSheet)
         for name: String in photo {
@@ -40,8 +60,24 @@ class ViewDemo: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func simulateLoading(){
+        if self.progressView.progress == 1.0 {
+            self.progressView.hidden = true
+            self.imageView .image =  UIImage (named: timer.userInfo as! String)
+            timer.invalidate()
+        } else {
+            progressView.progress += 0.1
+        }
+    }
+    
+    
+    
     func setImage(name: String){
-        self.imageView.image = UIImage(named: name)
+  //      self.imageView.image = UIImage(named: name)
+        self.progressView.hidden = false
+        self.progressView.progress = 0
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewDemo.simulateLoading), userInfo: name, repeats: true)
     }
 
     /*

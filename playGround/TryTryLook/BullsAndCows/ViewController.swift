@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var answearLabel: UILabel!
     var remainingTime: UInt8! {
         didSet {
-            remainingTimeLabel.text = "remaining time: \(remainingTime)"
+            remainingTimeLabel.text = "Remaining:\(remainingTime) times"
             if remainingTime == 0 {
                 guessButton.enabled = false
             } else {
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     // TODO: 1. decide the data type you want to use to store the answear
-    var answear = [Int]()
+    var answear = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +45,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         hintArray.removeAll()
         answearLabel.text = nil
         guessTextField.text = nil
+        remainingTimeLabel.textColor = UIColor.blackColor()
     }
     
     func generateAnswear() {
         // TODO: 2. generate your answear here
         // You need to generate 4 random and non-repeating digits.
         // Some hints: http://stackoverflow.com/q/24007129/938380
-        var indexA = [0,1,2,3,4,5,6,7,8,9]
+        answear.removeAll()
+        var indexA = ["0","1","2","3","4","5","6","7","8","9"]
         for i in 0...3{
             let arrayIndex = Int(arc4random_uniform(10-UInt32(i)))
             let arrayNum = indexA[arrayIndex]
@@ -62,14 +64,43 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func guess(sender: AnyObject) {
         let guessString = guessTextField.text
+        let guessInt = guessString!.characters.flatMap{Int(String($0))}
+        func containsDuplicate(nums: [Int]) -> Bool {
+            var counts = [Int: Int]()
+            var result = false
+            for num in nums {
+                if counts[num] == nil {
+                    counts[num] = 1
+                }
+                else {
+                    counts[num] = counts[num]! + 1
+                }
+            }
+            for count in counts.values {
+                if count >= 2 {
+                    result = true
+                    return result
+                }
+            }
+            return result
+        }
+        guard containsDuplicate(guessInt) == false else {
+            let alert = UIAlertController(title: "you should input 4 digits without any duplicate!", message: nil, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
         guard guessString?.characters.count == 4 else {
             let alert = UIAlertController(title: "you should input 4 digits to guess!", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
+      
         // TODO: 3. convert guessString to the data type you want to use and judge the guess
-        let guessArray = guessString!.characters.flatMap{Int(String($0))}
+        var guessArray = guessString!.characters.flatMap{String($0)}
+        
         var charA = 0
         var charB = 0
         for i in 0...3 {
@@ -83,6 +114,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 }
             }
         }
+         guessTextField.text = ""
         
         // TODO: 4. update the hint
         let hint = "\(charA)A,\(charB)B"
@@ -101,6 +133,17 @@ class ViewController: UIViewController, UITableViewDataSource {
             guessButton.enabled = false
         } else {
             remainingTime! -= 1
+            switch remainingTime {
+            case 4...6:
+                remainingTimeLabel.textColor = UIColor.yellowColor()
+            case 0...3:
+                remainingTimeLabel.textColor = UIColor.redColor()
+            case 0:
+                remainingTimeLabel.textColor = UIColor.grayColor()
+            default:
+                remainingTimeLabel.textColor = UIColor.blackColor()
+                
+            }
         }
     }
     @IBAction func showAnswear(sender: AnyObject) {

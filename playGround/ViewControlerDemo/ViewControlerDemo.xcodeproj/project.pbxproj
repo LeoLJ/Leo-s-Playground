@@ -17,6 +17,7 @@
 		A6CFC3941CF3FB1C00EB3645 /* ViewControlerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFC3931CF3FB1C00EB3645 /* ViewControlerDemoTests.swift */; };
 		A6CFC39F1CF3FB1C00EB3645 /* ViewControlerDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFC39E1CF3FB1C00EB3645 /* ViewControlerDemoUITests.swift */; };
 		A6CFC3AD1CF3FC1600EB3645 /* viewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CFC3AC1CF3FC1600EB3645 /* viewDemo.swift */; };
+		A6D26D3E1CF69903008DB942 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D26D3D1CF69903008DB942 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A6CFC39E1CF3FB1C00EB3645 /* ViewControlerDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControlerDemoUITests.swift; sourceTree = "<group>"; };
 		A6CFC3A01CF3FB1C00EB3645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6CFC3AC1CF3FC1600EB3645 /* viewDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = viewDemo.swift; path = ../viewDemo.swift; sourceTree = "<group>"; };
+		A6D26D3D1CF69903008DB942 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				A6CFC38A1CF3FB1C00EB3645 /* Info.plist */,
 				A6B336F21CF49F7F00F7F7BB /* textBook.swift */,
 				A6B336F41CF4A02F00F7F7BB /* textBook.storyboard */,
+				A6D26D3D1CF69903008DB942 /* ImageViewController.swift */,
 			);
 			path = ViewControlerDemo;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				A6CFC3AD1CF3FC1600EB3645 /* viewDemo.swift in Sources */,
 				A6B336F31CF49F7F00F7F7BB /* textBook.swift in Sources */,
+				A6D26D3E1CF69903008DB942 /* ImageViewController.swift in Sources */,
 				A6CFC3811CF3FB1C00EB3645 /* ViewController.swift in Sources */,
 				A6CFC37F1CF3FB1C00EB3645 /* AppDelegate.swift in Sources */,
 			);

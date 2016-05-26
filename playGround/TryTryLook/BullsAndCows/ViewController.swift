@@ -106,8 +106,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         for i in 0...3 {
             if guessArray[i] == answear[i]{
                 charA += 1
-            }else {
-                for num in guessArray{
+            }else {                         //[Leo] update new method "if guessArray.contains(answear[i]){
+                charB += 1                  //                          charB += 1
+                for num in guessArray{      //                              }    ---- super awesome!
                     if num == answear[i]{
                         charB += 1
                     }

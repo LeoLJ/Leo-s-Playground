@@ -17,6 +17,7 @@ class ViewDemo: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var sliderView: UISlider!
     @IBOutlet weak var stepperView: UIStepper!
+    @IBOutlet weak var bigView: UIImageView!
 
     
     
@@ -43,6 +44,7 @@ class ViewDemo: UIViewController {
         for name: String in photo {
             let action = UIAlertAction(title: name, style: .Default, handler: { (UIAlertAction) in
                 self.setImage(name)
+                
             })
                 alert.addAction(action)
         }
@@ -64,12 +66,12 @@ class ViewDemo: UIViewController {
         if self.progressView.progress == 1.0 {
             self.progressView.hidden = true
             self.imageView .image =  UIImage (named: timer.userInfo as! String)
+            self.bigView.image =  UIImage (named: timer.userInfo as! String)
             timer.invalidate()
         } else {
             progressView.progress += 0.1
         }
     }
-    
     
     
     func setImage(name: String){

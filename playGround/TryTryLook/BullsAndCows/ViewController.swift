@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     // TODO: 1. decide the data type you want to use to store the answear
-    var answear = [String]()
+        var answearA = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,51 +40,22 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     func setGame() {
-        generateAnswear()
+        answearA.removeAll()
+        answearA = GetRandomNum().generateAnswearFrom(0, to: 9, digi: 4)
         remainingTime = 9
         hintArray.removeAll()
         answearLabel.text = nil
         guessTextField.text = nil
         remainingTimeLabel.textColor = UIColor.blackColor()
+        print(answearA)
     }
     
-    func generateAnswear() {
-        // TODO: 2. generate your answear here
-        // You need to generate 4 random and non-repeating digits.
-        // Some hints: http://stackoverflow.com/q/24007129/938380
-        answear.removeAll()
-        var indexA = ["0","1","2","3","4","5","6","7","8","9"]
-        for i in 0...3{
-            let arrayIndex = Int(arc4random_uniform(10-UInt32(i)))
-            let arrayNum = indexA[arrayIndex]
-            answear.append(arrayNum)
-            indexA.removeAtIndex(arrayIndex)
-        }
-    }
     
     @IBAction func guess(sender: AnyObject) {
         let guessString = guessTextField.text
-        let guessInt = guessString!.characters.flatMap{Int(String($0))}
-        func containsDuplicate(nums: [Int]) -> Bool {
-            var counts = [Int: Int]()
-            var result = false
-            for num in nums {
-                if counts[num] == nil {
-                    counts[num] = 1
-                }
-                else {
-                    counts[num] = counts[num]! + 1
-                }
-            }
-            for count in counts.values {
-                if count >= 2 {
-                    result = true
-                    return result
-                }
-            }
-            return result
-        }
-        guard containsDuplicate(guessInt) == false else {
+        let guessInt = Duplicate().containsDuplicate(guessString!.characters.flatMap{Int(String($0))})        
+        
+        guard guessInt == false else {
             let alert = UIAlertController(title: "you should input 4 digits without any duplicate!", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -102,14 +73,14 @@ class ViewController: UIViewController, UITableViewDataSource {
         var guessArray = guessString!.characters.flatMap{String($0)}
         
         var charA = 0
-        var charB = 0
+        var charB = 0                       //for (index, element) in ..........
         for i in 0...3 {
-            if guessArray[i] == answear[i]{
+            if guessArray[i] == answearA[i]{
                 charA += 1
             }else {                         //[Leo] update new method "if guessArray.contains(answear[i]){
-                charB += 1                  //                          charB += 1
+                                            //                          charB += 1
                 for num in guessArray{      //                              }    ---- super awesome!
-                    if num == answear[i]{
+                    if num == answearA[i]{
                         charB += 1
                     }
                 }
@@ -123,7 +94,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         hintArray.append((guessString!, hint))
         
         // TODO: 5. update the constant "correct" if the guess is correct
-        var correct = false
+        var correct = false    //var correct = charA ==4
         if charA == 4 {
             correct = true
         }
@@ -149,7 +120,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     @IBAction func showAnswear(sender: AnyObject) {
         // TODO: 6. convert your answear to string(if it's necessary) and display it
-        answearLabel.text = "\(answear[0])\(answear[1])\(answear[2])\(answear[3])"
+        answearLabel.text = "\(answearA[0])\(answearA[1])\(answearA[2])\(answearA[3])"
     }
     
     @IBAction func playAgain(sender: AnyObject) {

@@ -13,8 +13,11 @@ class textBook: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.LabelView.text = "hello, hi, everyone, apperentyl, sort of ... sounds good and also yeah "
         // Do any additional setup after loading the view.
     }
+    @IBOutlet weak var LabelView: UILabel!
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

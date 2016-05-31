@@ -40,7 +40,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         setGame()
     }
 
-    func setGame() {        
+    func setGame() {
+        answearA.removeAll()
         answearA = answearB.generateAnswearFrom(0, to: 9, digi: 4)
         remainingTime = 9
         hintArray.removeAll()
@@ -73,7 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         var guessArray = guessString!.characters.flatMap{String($0)}
         
         var charA = 0
-        var charB = 0                       
+        var charB = 0
         for i in 0...3 {
             if guessArray[i] == answearA[i]{
                 charA += 1

@@ -13,22 +13,25 @@ import UIKit
 
 class GameLogic: NSObject {
     
-    var randomNum = [String]()
+    var randomNumArr = [String]()
     var indexArray = [String]()
     
     func generateAnswearFrom(from: Int, to: Int , digi: Int  ) -> [String]{
-        
+            
+        indexArray.removeAll()
         for i in from...to{
             indexArray.append("\(i)")
         }
-        randomNum.removeAll()
+        randomNumArr.removeAll()
         for _ in 0...digi-1{
             let arrayIndex = Int(arc4random_uniform(UInt32(indexArray.count)))
-            let arrayNum = indexArray[arrayIndex] // answearArray.append(numArray.removeAtIndex(xxx)) <- nice
-            randomNum.append(arrayNum)
+//            print("index\(arrayIndex)")
+            let arrayNum = indexArray[arrayIndex]// answearArray.append(numArray.removeAtIndex(xxx)) <- nice
+//            print("number\(arrayNum)")
+            randomNumArr.append(arrayNum)
             indexArray.removeAtIndex(arrayIndex) //remove returns values
         }
-        return randomNum
+        return randomNumArr
     }
         
     func containsDuplicate(nums: [Int]) -> Bool {

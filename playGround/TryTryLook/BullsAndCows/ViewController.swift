@@ -33,15 +33,15 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // TODO: 1. decide the data type you want to use to store the answear
         var answearA = [String]()
+        let answearB = GetRandomNum()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGame()
     }
 
-    func setGame() {
-        answearA.removeAll()
-        answearA = GetRandomNum().generateAnswearFrom(0, to: 9, digi: 4)
+    func setGame() {        
+        answearA = answearB.generateAnswearFrom(0, to: 9, digi: 4)
         remainingTime = 9
         hintArray.removeAll()
         answearLabel.text = nil

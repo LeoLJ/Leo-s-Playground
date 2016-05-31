@@ -13,23 +13,22 @@ import UIKit
 
 class GetRandomNum: NSObject {
     
-    var random = [String]()
-    var indexA = [String]()
+    var randomNum = [String]()
+    var indexArray = [String]()
     
     func generateAnswearFrom(from: Int, to: Int , digi: Int  ) -> [String]{
         
         for i in from...to{
-            indexA.append("\(i)")
+            indexArray.append("\(i)")
         }
-        
-        random.removeAll()
+        randomNum.removeAll()
         for _ in 0...digi-1{
-            let arrayIndex = Int(arc4random_uniform(UInt32(indexA.count)))
-            //            let arrayNum = indexA[arrayIndex] // answearArray.append(numArray.removeAtIndex(xxx)) <- nice
-            random.append(indexA.removeAtIndex(arrayIndex))
-            //indexA.removeAtIndex(arrayIndex) //remove returns values
+            let arrayIndex = Int(arc4random_uniform(UInt32(indexArray.count)))
+            let arrayNum = indexArray[arrayIndex] // answearArray.append(numArray.removeAtIndex(xxx)) <- nice
+            randomNum.append(arrayNum)
+            indexArray.removeAtIndex(arrayIndex) //remove returns values
         }
-        return random
+        return randomNum
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, GameProtocol {
     @IBOutlet weak var guessTextField: UITextField!
     @IBOutlet weak var guessButton: UIButton!
     @IBOutlet weak var remainingTimeLabel: UILabel!
@@ -32,11 +32,15 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     // TODO: 1. decide the data type you want to use to store the answear
-    var answear = [String]()
+    var answear: AnyObject = [String]()
+    var answer = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        answer = answear as! [String]
         setGame()
+        
     }
 
     func setGame() {
@@ -46,45 +50,47 @@ class ViewController: UIViewController, UITableViewDataSource {
         answearLabel.text = nil
         guessTextField.text = nil
         remainingTimeLabel.textColor = UIColor.blackColor()
+        
     }
     
     func generateAnswear() {
         // TODO: 2. generate your answear here
         // You need to generate 4 random and non-repeating digits.
         // Some hints: http://stackoverflow.com/q/24007129/938380
-        answear.removeAll()
+        
+        answer.removeAll()
         var indexA = ["0","1","2","3","4","5","6","7","8","9"]
         for i in 0...3{
             let arrayIndex = Int(arc4random_uniform(10-UInt32(i)))
             let arrayNum = indexA[arrayIndex]
-            answear.append(arrayNum)
+            answer.append(arrayNum)
             indexA.removeAtIndex(arrayIndex)
         }
     }
     
-    @IBAction func guess(sender: AnyObject) {
+    func guessAndJudgement() {
         let guessString = guessTextField.text
         let guessInt = guessString!.characters.flatMap{Int(String($0))}
-        func containsDuplicate(nums: [Int]) -> Bool {
-            var counts = [Int: Int]()
-            var result = false
-            for num in nums {
-                if counts[num] == nil {
-                    counts[num] = 1
-                }
-                else {
-                    counts[num] = counts[num]! + 1
-                }
-            }
-            for count in counts.values {
-                if count >= 2 {
-                    result = true
-                    return result
-                }
-            }
-            return result
-        }
-        guard containsDuplicate(guessInt) == false else {
+        //        func containsDuplicate(nums: [Int]) -> Bool {
+        //            var counts = [Int: Int]()
+        //            var result = false
+        //            for num in nums {
+        //                if counts[num] == nil {
+        //                    counts[num] = 1
+        //                }
+        //                else {
+        //                    counts[num] = counts[num]! + 1
+        //                }
+        //            }
+        //            for count in counts.values {
+        //                if count >= 2 {
+        //                    result = true
+        //                    return result
+        //                }
+        //            }
+        //            return result
+        //        }
+        guard Set(guessInt).count == 4 else {
             let alert = UIAlertController(title: "you should input 4 digits without any duplicate!", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -97,25 +103,26 @@ class ViewController: UIViewController, UITableViewDataSource {
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
-      
+        
         // TODO: 3. convert guessString to the data type you want to use and judge the guess
+        
         var guessArray = guessString!.characters.flatMap{String($0)}
         
         var charA = 0
         var charB = 0
         for i in 0...3 {
-            if guessArray[i] == answear[i]{
+            if guessArray[i] == answer[i]{
                 charA += 1
             }else {                         //[Leo] update new method "if guessArray.contains(answear[i]){
-                charB += 1                  //                          charB += 1
+                                            //                          charB += 1
                 for num in guessArray{      //                              }    ---- super awesome!
-                    if num == answear[i]{
+                    if num == answer[i]{
                         charB += 1
                     }
                 }
             }
         }
-         guessTextField.text = ""
+        guessTextField.text = ""
         
         // TODO: 4. update the hint
         let hint = "\(charA)A,\(charB)B"
@@ -146,10 +153,16 @@ class ViewController: UIViewController, UITableViewDataSource {
                 
             }
         }
+        
     }
+    
+    @IBAction func guess(sender: AnyObject) {
+        guessAndJudgement()
+    }
+    
     @IBAction func showAnswear(sender: AnyObject) {
         // TODO: 6. convert your answear to string(if it's necessary) and display it
-        answearLabel.text = "\(answear[0])\(answear[1])\(answear[2])\(answear[3])"
+        answearLabel.text = "\(answer[0])\(answer[1])\(answer[2])\(answer[3])"
     }
     
     @IBAction func playAgain(sender: AnyObject) {

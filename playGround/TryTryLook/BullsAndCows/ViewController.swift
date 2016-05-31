@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // TODO: 1. decide the data type you want to use to store the answear
         var answearA = [String]()
-        let answearB = GetRandomNum()
+        let answearB = GameLogic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func guess(sender: AnyObject) {
         let guessString = guessTextField.text
-        let guessInt = Duplicate().containsDuplicate(guessString!.characters.flatMap{Int(String($0))})        
+        let guessInt = GameLogic().containsDuplicate(guessString!.characters.flatMap{Int(String($0))})
         
         guard guessInt == false else {
             let alert = UIAlertController(title: "you should input 4 digits without any duplicate!", message: nil, preferredStyle: .Alert)
@@ -73,19 +73,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         var guessArray = guessString!.characters.flatMap{String($0)}
         
         var charA = 0
-        var charB = 0                       //for (index, element) in ..........
+        var charB = 0                       
         for i in 0...3 {
             if guessArray[i] == answearA[i]{
                 charA += 1
-            }else {                         //[Leo] update new method "if guessArray.contains(answear[i]){
-                                            //                          charB += 1
-                for num in guessArray{      //                              }    ---- super awesome!
-                    if num == answearA[i]{
-                        charB += 1
-                    }
+            }else if guessArray.contains(answearA[i]){
+                charB += 1
                 }
             }
-        }
+        
          guessTextField.text = ""
         
         // TODO: 4. update the hint

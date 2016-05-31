@@ -11,7 +11,7 @@
 
 import UIKit
 
-class GetRandomNum: NSObject {
+class GameLogic: NSObject {
     
     var randomNum = [String]()
     var indexArray = [String]()
@@ -30,5 +30,24 @@ class GetRandomNum: NSObject {
         }
         return randomNum
     }
-    
+        
+    func containsDuplicate(nums: [Int]) -> Bool {
+        var counts = [Int: Int]()
+        var result = false
+        for num in nums {
+            if counts[num] == nil {
+                counts[num] = 1
+            }
+            else {
+                counts[num] = counts[num]! + 1
+            }
+        }
+        for count in counts.values {
+            if count >= 2 {
+                result = true
+                return result
+            }
+        }
+        return result
+    }
 }

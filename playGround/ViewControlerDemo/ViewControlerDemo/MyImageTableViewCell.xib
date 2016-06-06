@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyImageCell" rowHeight="364" id="KGk-i7-Jjw" customClass="MyImageTableViewCell" customModule="ViewControlerDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="604" height="364"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="604" height="363.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WQV-U7-Ml8">
+                        <rect key="frame" x="8" y="8" width="140" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="cqz-Xe-V95"/>
+                            <constraint firstAttribute="height" constant="140" id="hvj-nK-jxw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m72-ZG-irB">
+                        <rect key="frame" x="8" y="158" width="142" height="197.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="142" id="Z3Q-E0-Drs"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Label is not just a label but a super extremely label include a lot of labels in a label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXU-5Z-Qsz">
+                        <rect key="frame" x="150" y="8" width="446" height="347.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WQV-U7-Ml8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="0ei-BK-CxW"/>
+                    <constraint firstItem="zXU-5Z-Qsz" firstAttribute="leading" secondItem="m72-ZG-irB" secondAttribute="trailing" id="4nW-Y0-Zic"/>
+                    <constraint firstItem="m72-ZG-irB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="ASp-1i-Axz"/>
+                    <constraint firstItem="zXU-5Z-Qsz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Qes-eT-4hJ"/>
+                    <constraint firstItem="zXU-5Z-Qsz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ZCZ-9x-La0"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="m72-ZG-irB" secondAttribute="bottom" id="bAl-N1-V5K"/>
+                    <constraint firstItem="WQV-U7-Ml8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="juv-Qz-Ejx"/>
+                    <constraint firstItem="m72-ZG-irB" firstAttribute="top" secondItem="WQV-U7-Ml8" secondAttribute="bottom" constant="10" id="oGO-lT-p5S"/>
+                    <constraint firstItem="zXU-5Z-Qsz" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="piN-n8-kTk"/>
+                    <constraint firstItem="m72-ZG-irB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="xR1-yv-OHY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="zXU-5Z-Qsz" id="Y2G-Ul-Jj0"/>
+                <outlet property="nameLabel" destination="m72-ZG-irB" id="bx6-Bs-AYX"/>
+                <outlet property="viewInCell" destination="WQV-U7-Ml8" id="xpL-hG-XxK"/>
+            </connections>
+            <point key="canvasLocation" x="465" y="243"/>
+        </tableViewCell>
+    </objects>
+</document>

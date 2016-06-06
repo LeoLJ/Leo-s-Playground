@@ -11,26 +11,26 @@ import UIKit
 class ImageViewController: UIViewController, UIScrollViewDelegate {
 
     
+    @IBOutlet weak var scroll: UIScrollView!
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    
     var imageView: UIImageView?
+    var imageName: String?
     
     override func viewDidLoad() {
         
             super.viewDidLoad()
 
-            self.imageView = UIImageView(image:UIImage(named: "jump"))
+            self.imageView = UIImageView(image: UIImage(named: imageName!))
         
-            self.scrollView.addSubview(imageView!)
+            self.scroll.addSubview(imageView!)
         
-            self.scrollView.contentSize = imageView!.frame.size
+            self.scroll.contentSize = imageView!.frame.size
         
-            self.scrollView.delegate = self
+            self.scroll.delegate = self
         
-            self.scrollView.maximumZoomScale = 5.0
+            self.scroll.maximumZoomScale = 5.0
         
-            self.scrollView.minimumZoomScale = 1.0
+            self.scroll.minimumZoomScale = 1.0
         
     }
 

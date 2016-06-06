@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         // TODO: 4. update the hint
         let hint = "\(charA)A,\(charB)B"
         
-        hintArray.append((guessString!, hint))
+        hintArray.insert((guessString!, hint), atIndex: 0) //insert at index[0]
         
         // TODO: 5. update the constant "correct" if the guess is correct
         var correct = false    //var correct = charA ==4
@@ -135,7 +135,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Hint Cell", forIndexPath: indexPath)
-        let (guess, hint) = hintArray[indexPath.row]
+        let (guess, hint) = hintArray[indexPath.row] // or hintArray.reverse() or [hintArray.count-indexPath.row-1] <-- get value directly which is better
         cell.textLabel?.text = "\(guess) => \(hint)"
         return cell
     }

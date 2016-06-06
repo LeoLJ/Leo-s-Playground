@@ -10,7 +10,7 @@ import UIKit
 
 class ViewDemo: UIViewController {
 
-    let photo = ["stand","jump"]
+
     var timer: NSTimer!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -41,9 +41,9 @@ class ViewDemo: UIViewController {
 
     @IBAction func changePhoto(sender: AnyObject) {
         let alert = UIAlertController(title: "Change Image", message: "please select a photo", preferredStyle: .ActionSheet)
-        for name: String in photo {
-            let action = UIAlertAction(title: name, style: .Default, handler: { (UIAlertAction) in
-                self.setImage(name)
+        for image in Image.images {
+            let action = UIAlertAction(title: image.name, style: .Default, handler: { (UIAlertAction) in
+                self.setImage(image.name)
                 
             })
                 alert.addAction(action)

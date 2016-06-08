@@ -81,6 +81,73 @@
             </objects>
             <point key="canvasLocation" x="-201" y="279"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ZFl-GJ-nMX">
+            <objects>
+                <viewController id="722-j0-Xz6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fpl-pG-GPL"/>
+                        <viewControllerLayoutGuide type="bottom" id="hCC-kz-YHW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gy8-Jx-psw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5C-5e-uWS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fmS-xN-WlX">
+                                <rect key="frame" x="0.0" y="44" width="600" height="313"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pCc-a8-3Ao">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pCc-a8-3Ao" id="fKE-Qw-Nig">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bcg-MB-Qdi">
+                                <rect key="frame" x="115" y="392" width="46" height="51"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arb-Hc-ubE">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fY-Tl-9iY">
+                                        <rect key="frame" x="0.0" y="30" width="46" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oaq-dd-fE4">
+                                <rect key="frame" x="400" y="476" width="200" height="110"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="nNb-8V-C1X" id="YNM-ES-Y7A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AkD-Jm-rbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="nNb-8V-C1X">
+                    <connections>
+                        <outlet property="delegate" destination="722-j0-Xz6" id="unL-Og-l49"/>
+                        <outlet property="searchContentsController" destination="722-j0-Xz6" id="hvY-Wr-5Wj"/>
+                        <outlet property="searchResultsDataSource" destination="722-j0-Xz6" id="vgj-Kv-o6q"/>
+                        <outlet property="searchResultsDelegate" destination="722-j0-Xz6" id="oS2-3t-GpG"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-877" y="1183"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pMD-3f-ddJ">
             <objects>
